@@ -73,9 +73,16 @@ using STD_PATH = std::filesystem::path;
 
 
 using error_handler_t = std::function<void(std::string)>;
+
 using tick_t = std::chrono::steady_clock::time_point;
-using TICK_HR = std::chrono::high_resolution_clock;
+using steady_clock_t = std::chrono::steady_clock;
+
+
 using duration_t = std::chrono::steady_clock::duration;
+
+using TICK_HR = std::chrono::high_resolution_clock;
+
+
 std::ostream& operator<<(std::ostream& os, const duration_t& duration);
 #define SEC_FROM_DUR(duration) (std::chrono::duration_cast<std::chrono::milliseconds>((duration)).count()/1000.0)
 #define DUR_FROM_SEC(duration_sec) (duration_t(static_cast<long long>((duration_sec) * 1e9)))

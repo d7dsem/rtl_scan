@@ -1,5 +1,6 @@
 {
     "tasks": [
+        // "CLEAR BUILD"
         {
             "label": "CLEAR BUILD",
             "type": "shell",
@@ -18,6 +19,7 @@
             },
             "problemMatcher": []
         },
+        // "CONFIGURE DEBUG"
         {
             "label": "CONFIGURE DEBUG",
             "type": "shell",
@@ -49,23 +51,23 @@
             },
             "problemMatcher": []
         },
+        // "CONFIGURE RELEASE"
         {
             "label": "CONFIGURE RELEASE",
             "type": "shell",
             "command": "cmake",
             "args": [
                 "-DCMAKE_BUILD_TYPE=Release",
-                "-G",
-                "MinGW Makefiles",
                 "-S",
                 "${workspaceFolder}",
                 "-B",
                 "${workspaceFolder}/build/release"
             ],
-            "problemMatcher": []
+            "problemMatcher": [],
+            "dependsOn": "CLEAR BUILD"
         },
         {
-            "label": "Build Curr",
+            "label": "Build DBG",
             "type": "shell",
             "command": "cmake",
             "args": [
@@ -78,6 +80,24 @@
                 "kind": "build",
                 "isDefault": true
             }
+        }, 
+        {
+            "label": "Build RELEASE",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build/release",
+                "--target",
+                "rtls",
+                "--config"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [],
+            "dependsOn": "CONFIGURE RELEASE"
         }
     ],
     "version": "2.0.0"

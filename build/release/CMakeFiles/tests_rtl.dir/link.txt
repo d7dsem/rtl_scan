@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/tests_rtl.dir/test/test_rtl_stuff.cpp.o CMakeFiles/tests_rtl.dir/source/main/rtl_sdr_stuff.cpp.o -o bin/tests_rtl  /usr/lib/x86_64-linux-gnu/libCatch2Main.a /usr/lib/x86_64-linux-gnu/librtlsdr.so /usr/lib/x86_64-linux-gnu/libCatch2.a 

@@ -14,19 +14,21 @@ httplib::Server& configure_paths(httplib::Server& server)
     return server;
 }
 
-extern  void test_fftw3();
+extern  void test_fftw3(int argc, char *argv[]);
 extern  void test_rtl_device();
 
 int main(int argc, char *argv[]) 
 {
+    test_fftw3(argc, argv);
+
     std::cout << std::endl;
 #ifdef _DEBUG
     std::cout << get_gradien_colorized("### DEBUG MODE ###", CONSOLE::CYAN,  CONSOLE::BLUE) << std::endl;
 #endif
     std::cout << PUSH_GREEN("<< RTL SCANER >>") << std::endl;
 
-    // test_fftw3();
-    test_rtl_device();
+
+    // test_rtl_device();
 
     httplib::Server server;
     configure_paths(server);

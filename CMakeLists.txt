@@ -26,25 +26,6 @@ endfunction()
 set(dubug_executable_name "curr")
 add_subdirectory(source/_aux)
 
-# ==================================================================
-
-
-
-# set(catch_path "D:/Programming/Catch2")
-
-# if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-#     set(catch_lib_path "${catch_path}/build_mk0/debug/src/Debug")
-#     set(catch_include_path "${catch_path}/build_mk0/debug/generated-includes")
-# elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
-#     set(catch_lib_path "${catch_path}/build_mk0/release/src/Debug")
-#     set(catch_include_path "${catch_path}/build_mk0/release/generated-includes")
-# endif()
-
-# add_subdirectory("${catch_path}" "${catch_path}/build" EXCLUDE_FROM_ALL)
-
-# find_package(Catch2 3 REQUIRED)
-
-
 # ===================  MAIN ========================================
 
 add_executable(rtls source/main/main.cpp source/main/demo_stuff.cpp)
@@ -67,7 +48,13 @@ target_link_libraries(rtls PRIVATE ${FFTW_LIB})
 find_library(RTLSDR_LIB rtlsdr REQUIRED PATHS /usr/lib/x86_64-linux-gnu)
 target_include_directories(rtls PRIVATE /usr/include)
 target_link_libraries(rtls PRIVATE ${RTLSDR_LIB})
+# Optimization flags
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+    target_compile_options(rtls PRIVATE -O2)
+endif()
 
+
+# ===================  TESTS =======================================
 find_package(Catch2 REQUIRED)
 add_executable(tests_rtl test/test_rtl_stuff.cpp source/main/rtl_sdr_stuff.cpp)
 target_include_directories(tests_rtl PRIVATE /usr/include/catch2)
