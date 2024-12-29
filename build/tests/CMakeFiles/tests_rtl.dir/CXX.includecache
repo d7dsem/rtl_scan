@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/d7/Public/rtl_scan/test/test_rtl_stuff.cpp
+catch2/catch_test_macros.hpp
+-
+rtl-sdr.h
+-
+string
+-
+stdexcept
+-
+iostream
+-
+memory
+-
+

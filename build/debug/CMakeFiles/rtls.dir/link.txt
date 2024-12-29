@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/rtls.dir/source/main/main.cpp.o CMakeFiles/rtls.dir/source/main/demo_stuff.cpp.o -o bin/curr  lib/lib_aux.a lib/lib_aux.a /usr/lib/x86_64-linux-gnu/libfftw3.so /usr/lib/x86_64-linux-gnu/librtlsdr.so -lpthread 

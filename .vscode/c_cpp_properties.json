@@ -1,0 +1,35 @@
+{
+    "configurations": [
+        {
+            "name": "windows-gcc-x64",
+            "includePath": [
+                "${workspaceFolder}/source",
+                "C:/Program Files (x86)/Catch2/include"
+            ],
+            "compilerPath": "D:/C/mingw64/bin/gcc.exe",
+            "cStandard": "${default}",
+            "cppStandard": "${default}",
+            "intelliSenseMode": "windows-gcc-x64",
+            "compilerArgs": [
+                ""
+            ]
+        },
+        {
+            "name": "Debilian-linux-gcc-x64",
+            "includePath": [
+                "${workspaceFolder}/source",
+                "/usr/include",                      
+                "/usr/include/c++/10",               
+                "/usr/lib/x86_64-linux-gnu"   
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "${default}", 
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerArgs": [
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}

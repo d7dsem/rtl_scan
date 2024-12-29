@@ -1,0 +1,84 @@
+{
+    "tasks": [
+        {
+            "label": "CLEAR BUILD",
+            "type": "shell",
+            "windows": {
+                "command": "powershell",
+                "args": [
+                    "if (Test-Path -Path '${workspaceFolder}\\build\\debug') { Remove-Item -Recurse -Force '${workspaceFolder}\\build' }"
+                ]
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "-c",
+                    "rm -rf ${workspaceFolder}/build && mkdir -p '${workspaceFolder}/build/debug' && mkdir -p '${workspaceFolder}/build/release'"
+                ]
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "CONFIGURE DEBUG",
+            "type": "shell",
+            "windows": {
+                "command": "cmake",
+                "args": [
+                    "-DCMAKE_BUILD_TYPE=Debug",
+                    "-G",
+                    "MinGW Makefiles",
+                    "-S",
+                    "${workspaceFolder}",
+                    "-B",
+                    "${workspaceFolder}/build/debug"
+                ],
+                "problemMatcher": [],
+                "dependsOn": "CLEAR BUILD"
+            },
+            "linux": {
+                "command": "cmake",
+                "args": [
+                    "-DCMAKE_BUILD_TYPE=Debug",
+                    "-S",
+                    "${workspaceFolder}",
+                    "-B",
+                    "${workspaceFolder}/build/debug"
+                ],
+                "problemMatcher": [],
+                "dependsOn": "CLEAR BUILD"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "CONFIGURE RELEASE",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-G",
+                "MinGW Makefiles",
+                "-S",
+                "${workspaceFolder}",
+                "-B",
+                "${workspaceFolder}/build/release"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Curr",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build/debug",
+                "--target",
+                "rtls"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "version": "2.0.0"
+}

@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/d7/Public/rtl_scan/source/main/demo_stuff.cpp
+fftw3.h
+-
+rtl-sdr.h
+-
+iostream
+-
+

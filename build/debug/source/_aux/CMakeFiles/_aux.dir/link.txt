@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../lib/lib_aux.a CMakeFiles/_aux.dir/d7.cpp.o
+/usr/bin/ranlib ../../lib/lib_aux.a
